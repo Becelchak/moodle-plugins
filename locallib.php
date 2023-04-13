@@ -45,6 +45,11 @@ function webgl_import_extract_upload_contents(stdClass $webgl, string $zipfilepa
 
     $dirname = array_key_first($filelist);
 
+    if ($dirname == 'index.html') {
+        $dirname = '';
+
+    }
+
     if (!is_dir($importtempdir . DIRECTORY_SEPARATOR . $dirname)) {
 
         $dirnamearr = explode('/', $dirname);
@@ -54,18 +59,18 @@ function webgl_import_extract_upload_contents(stdClass $webgl, string $zipfilepa
     }
 
     if (!is_dir($importtempdir . DIRECTORY_SEPARATOR . $dirname)) {
-        // Missing required file.
+        // Файл не найден из-за некорректной директории
         throw new moodle_exception('invalidcontent', 'mod_webgl');
     }
 
     $indexfile = $dirname . 'index.html';
 
     if (!in_array($indexfile, $filelist)) {
-        // Missing required file.
+        // Файл не найден из-за некорректного index.html
         throw new moodle_exception('errorimport', 'mod_webgl');
     }
 
-    // Upload to S3.
+    // Upload to S3. (Не актуально)
     if ($webgl->storage_engine == mod_webgl_mod_form::STORAGE_ENGINE_S3) {
         $bucket = get_config('webgl', 'bucket_name');
         list($endpoint, $foldername) = webgl_s3_upload($webgl, $bucket, $filelist, $importtempdir);
@@ -147,7 +152,7 @@ function webgl_s3_upload(stdClass $webgl, string $bucket, $filelist, $importtemp
 }
 
 /**
- * Upload zip file.
+ * Загрузка zip файла.
  *
  * @param stdClass $webgl
  * @param moodleform_mod $mform

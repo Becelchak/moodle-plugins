@@ -355,18 +355,18 @@ function webgl_grade_item_update(stdClass $webgl, $reset = false) {
     require_once($CFG->libdir . '/gradelib.php');
 
     $item = array();
-    $item['itemname'] = clean_param($webgl->name, PARAM_NOTAGS);
-    $item['gradetype'] = GRADE_TYPE_VALUE;
+    $item['itemName'] = clean_param($webgl->name, PARAM_NOTAGS);
+    $item[] = GRADE_TYPE_VALUE;
 
     if ($webgl->grade > 0) {
-        $item['gradetype'] = GRADE_TYPE_VALUE;
-        $item['grademax'] = $webgl->grade;
-        $item['grademin'] = 0;
+        $item['gradeType'] = GRADE_TYPE_VALUE;
+        $item['gradeMax'] = $webgl->grade;
+        $item['gradeMin'] = 0;
     } else if ($webgl->grade < 0) {
-        $item['gradetype'] = GRADE_TYPE_SCALE;
+        $item['gradeType'] = GRADE_TYPE_SCALE;
         $item['scaleid'] = -$webgl->grade;
     } else {
-        $item['gradetype'] = GRADE_TYPE_NONE;
+        $item['gradeType'] = GRADE_TYPE_NONE;
     }
 
     if ($reset) {
@@ -381,7 +381,7 @@ function webgl_grade_item_update(stdClass $webgl, $reset = false) {
  * Delete grade item for given webgl instance
  *
  * @param stdClass $webgl instance object
- * @return grade_item
+ * @return int
  */
 function webgl_grade_item_delete($webgl) {
     global $CFG;
@@ -479,7 +479,7 @@ function webgl_pluginfile($course, $cm, $context, $filearea, array $args, $force
         return false;
     }
 
-    send_stored_file($file, 0, 0, $forcedownload);
+    return send_stored_file($file, 0, 0, $forcedownload);
 }
 
 /* Navigation API */
