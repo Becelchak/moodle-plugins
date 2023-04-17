@@ -28,7 +28,6 @@ $string['modulename_help'] = 'WebGL is a JavaScript API for rendering interactiv
 $string['contentheader'] = 'Content';
 $string['input:file'] = 'WebGL file';
 $string['header:content'] = 'WebGL content';
-// TODO: Find these strings in the UI and make sure they are logical.
 $string['webgl:addinstance'] = 'Add a new WebGL Application.';
 $string['webgl:submit'] = 'Submit WebGL Application';
 $string['webgl:view'] = 'View webGL';
@@ -101,5 +100,6 @@ $string['storage'] = 'Storage details';
 $string['local_file_system'] = 'Moodle file system';
 
 $string['privacy:metadata'] = 'The mod_webgl plugin does not store any personal data.';
+$string['previously_uploaded'] = 'Previously Uploaded file name :';
 
 // END: Fields in the admin form.

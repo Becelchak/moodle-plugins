@@ -93,12 +93,13 @@ class mod_webgl_mod_form extends moodleform_mod {
                         </div>
                     </div>';
             } else {
+                $prev = get_string('previously_uploaded', 'mod_webgl');
                 $ancor = '<div id="fitem_id_webgl_file" class="form-group row  fitem">
                         <div class="col-md-3">
                             <label class="col-form-label d-inline " for="id_webgl_file">&nbsp;</label>
                         </div>
                         <div class="col-md-9 form-inline felement" data-fieldtype="text" id="id_webgl_file">
-                            <p>Previously Uploaded file name : ' . $moduledata->webgl_file . '</p>
+                            <p> $prev ' . $moduledata->webgl_file . '</p>
                         </div>
                     </div>';
             }
