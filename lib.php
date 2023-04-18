@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Library of interface functions and constants for module webgl
  *

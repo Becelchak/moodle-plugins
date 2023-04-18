@@ -1,9 +1,4 @@
 <?php
-
-defined('MOODLE_INTERNAL') || die();
-
-require_once($CFG->dirroot . '/course/moodleform_mod.php');
-
 /**
  * webgl activity form
  *
@@ -11,6 +6,10 @@ require_once($CFG->dirroot . '/course/moodleform_mod.php');
  * @copyright  2020 Brain station 23 ltd <>  {@link https://brainstation-23.com/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+defined('MOODLE_INTERNAL') || die();
+
+require_once($CFG->dirroot . '/course/moodleform_mod.php');
 class mod_webgl_mod_form extends moodleform_mod {
     /**
      * Storage engine azure.

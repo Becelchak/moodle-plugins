@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Defines the view event.
  *

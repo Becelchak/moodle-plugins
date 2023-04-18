@@ -1,5 +1,4 @@
 <?php
-
 /**
  * WebGL plugin privacy api implementation.
  *

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * mod webgl module version info
  *

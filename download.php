@@ -1,5 +1,4 @@
 <?php
-
 /**
  * AWS webgl module version info
  *

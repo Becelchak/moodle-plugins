@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Defines Blob Storage.
  *

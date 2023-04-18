@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The mod_webgl instance list viewed event.
  *
