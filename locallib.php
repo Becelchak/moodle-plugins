@@ -131,7 +131,6 @@ function webgl_import_extract_upload_contents(stdClass $webgl, string $zipfilepa
  * @param string $bucket
  * @param array $filelist
  * @param string $importtempdir
- * @param string $replacewith
  * @return mixed
  * @throws dml_exception
  */

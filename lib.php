@@ -461,7 +461,6 @@ function webgl_get_file_info($browser, $areas, $course, $cm, $context, $filearea
  *
  * @package mod_webgl
  */
-
 function webgl_pluginfile($course, $cm, $context, $filearea, array $args, $forcedownload, array $options = array()) {
     global $DB, $CFG;
 
@@ -480,33 +479,4 @@ function webgl_pluginfile($course, $cm, $context, $filearea, array $args, $force
     }
 
     return send_stored_file($file, 0, 0, $forcedownload);
-}
-
-/* Navigation API */
-
-/**
- * Extends the global navigation tree by adding webgl nodes if there is a relevant content
- *
- * This can be called by an AJAX request so do not rely on $PAGE as it might not be set up properly.
- *
- * @param navigation_node $navref An object representing the navigation tree node of the webgl module instance
- * @param stdClass $course current course record
- * @param stdClass $module current webgl instance record
- * @param cm_info $cm course module information
- */
-function webgl_extend_navigation(navigation_node $navref, stdClass $course, stdClass $module, cm_info $cm) {
-    // TODO Delete this function and its docblock, or implement it.
-}
-
-/**
- * Extends the settings navigation with the webgl settings
- *
- * This function is called when the context for the page is a webgl module. This is not called by AJAX
- * so it is safe to rely on the $PAGE.
- *
- * @param settings_navigation $settingsnav complete settings navigation tree
- * @param navigation_node $webglnode webgl administration node
- */
-function webgl_extend_settings_navigation(settings_navigation $settingsnav, navigation_node $webglnode = null) {
-    // TODO Delete this function and its docblock, or implement it.
 }
