@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Locallib.
  *
@@ -11,6 +12,22 @@ defined('MOODLE_INTERNAL') || die;
 
 require_once('BlobStorage.php');
 require_once('mod_form.php');
+
+/** Возвращает строку html кода, позволяя отрисовать плеер с юнити игрой
+ * @param $webgl
+ * @return string
+ */
+function GetFrameGame ($webgl) {
+    return
+        '<div class="webgl-iframe-content-loader">
+    <iframe
+    width="100%"
+    height="100%"
+    src="' . $webgl->index_file_url . '" >
+    </iframe>
+</div>
+';
+}
 
 /**
  * Extracts the imported zip contents.
