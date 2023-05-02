@@ -1,4 +1,18 @@
 <?php
+// This file is part of Moodle - https://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
  * webgl module language file
@@ -34,40 +48,10 @@ $string['download_exception'] = 'Вы должны указать идентиф
 
 // BEGIN: Fields in the admin form.
 
-$string['account_name'] = 'Имя учетной записи хранилища Azure';
-$string['account_name_help'] = 'Учетная запись хранилища Azure содержит все ваши объекты данных Azure Storage: блобы, файлы, очереди, таблицы и диски. Учетная запись хранилища предоставляет уникальное пространство имен для ваших данных Azure Storage, доступное из любой точки мира по HTTP или HTTPS. Данные в учетной записи хранилища Azure являются долговечными и высокодоступными, безопасными и массово масштабируемыми.';
-$string['account_key'] = 'Ключ учетной записи Azure Storage';
-$string['account_key_help'] = 'При создании учетной записи хранилища Azure генерирует два 512-битных ключа доступа к учетной записи хранилища. Эти ключи можно использовать для авторизации доступа к данным в вашей учетной записи хранилища с помощью авторизации Shared Key.';
-$string['container_name'] = 'Контейнер для хранения блобов';
-$string['container_name_help'] = 'Azure Blob Storage помогает создавать озера данных для аналитических задач и обеспечивает хранение данных для создания мощных облачных и мобильных приложений. Оптимизируйте расходы с помощью многоуровневого хранилища для долгосрочных данных и гибко масштабируйте его для высокопроизводительных вычислений и рабочих нагрузок машинного обучения.';
-$string['access_key'] = 'Ключ доступа AWS';
-$string['access_key_help'] = 'Ключ доступа AWS';
-
-$string['secret_key'] = 'Секретный_ключ AWS';
-$string['secret_key_help'] = 'Секретный_ключ AWS';
-
-$string['storage_engine'] = 'Двигатель хранения';
-$string['storage_engine_help'] = 'Механизм хранения данных: Webgl предоставляет 3 вида хранилищ. Файловая система по умолчанию Moodle, BLOB-хранилище Azure, AWS S3. Выберите подходящее';
-
-$string['account_name_error'] = 'Имя учетной записи не должно быть пустым, если движком хранения является Azure BLOB storage.';
-$string['account_key_error'] = 'Ключ учетной записи не должен быть пустым, если движком хранения является Azure BLOB storage.';
-$string['container_name_error'] = 'Имя контейнера не должно быть пустым, если механизмом хранения является Azure BLOB storage.';
-
-$string['access_key_error'] = 'Ключ доступа не должен быть пустым, если механизмом хранения является AWS s3.';
-$string['secret_key_error'] = 'Секретный ключ не должен быть пустым, если механизмом хранения является AWS s3.';
-$string['endpoint_error'] = 'Конечная точка не должна быть пустой, пока механизмом хранения является AWS s3.';
-
-$string['endpoint'] = 'Конечная точка S3';
-$string['endpoint_help'] = 'Конечная точка AWS s3';
-
-$string['bucket_name'] = 'Имя ведра AWS S3';
-$string['bucket_name_help'] = 'Имя ведра AWS s3 должно быть уникальным';
-
-$string['cloudfront_url'] = 'URL-адрес Cloud Front';
-$string['cloudfront_url_help'] = 'URL-адрес Cloud Front';
+$string['storage_engine'] = 'Место хранения';
+$string['storage_engine_help'] = 'Механизм хранения данных: Webgl предоставляет единственное хранилище - файловую систему Moodle, которая и стоит по умолчанию.';
 
 $string['store_zip_file'] = 'Загрузить zip-файл';
-$string['store_zip_file_help'] = 'Также загрузите загруженный zip-файл в хранилище Azure Blob.';
 
 $string['iframe_height'] = 'Высота содержимого';
 $string['iframe_height_help'] = 'Высота Iframe, загружающего WebGL-контент, в (пикселях, (r)em, процентах). Значение по умолчанию - 550px.';

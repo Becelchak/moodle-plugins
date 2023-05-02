@@ -13,7 +13,9 @@ global $OUTPUT;
 
 require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
 require_once(dirname(__FILE__) . '/lib.php');
-require_once(dirname(__FILE__) . '/BlobStorage.php');
+//require_once($CFG->dirroot.'/mod/lesson/locallib.php');
+
+
 $id = optional_param('id', 0, PARAM_INT); // Course_module ID, or.
 $n = optional_param('n', 0, PARAM_INT); // Webgl instance ID - it should be named as the first character of the module.
 
@@ -48,16 +50,16 @@ $PAGE->set_cacheable(false);
 $PAGE->set_pagelayout('embedded');
 $context = context_course::instance($course->id);
 
+//$lesson = new lesson($DB->get_record('lesson', array('id' => $cm->instance), '*', MUST_EXIST), $cm, $course);
+$fa = $PAGE->get_renderer('mod_webgl');
+echo $fa->header($webgl,$cm, '', false, $id);
+//echo $OUTPUT->header();
 
-//$fa = $PAGE->get_renderer('mod_lesson');
-//echo $fa->header($webgl,$cm);
-echo $OUTPUT->header();
+//$array = [];
+//$array['sitename'] = 'URFU';
 
-$array = [];
-$array['sitename'] = 'URFU';
-
-echo  $OUTPUT -> render_from_template ( 'theme_boost/navbar' ,  $array);
+//echo  $OUTPUT -> render_from_template ( 'theme_boost/navbar' ,  $array);
 
 echo GetFrameGame($webgl);
 
-echo $OUTPUT->footer();
+//echo $OUTPUT->footer();
