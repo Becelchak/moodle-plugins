@@ -50,16 +50,9 @@ $PAGE->set_cacheable(false);
 $PAGE->set_pagelayout('embedded');
 $context = context_course::instance($course->id);
 
-//$lesson = new lesson($DB->get_record('lesson', array('id' => $cm->instance), '*', MUST_EXIST), $cm, $course);
-$fa = $PAGE->get_renderer('mod_webgl');
-echo $fa->header($webgl,$cm, '', false, $id);
-//echo $OUTPUT->header();
-
-//$array = [];
-//$array['sitename'] = 'URFU';
-
-//echo  $OUTPUT -> render_from_template ( 'theme_boost/navbar' ,  $array);
+$webgloutpout = $PAGE->get_renderer('mod_webgl');
+echo $webgloutpout->header($webgl,$cm, '', false, $id);
 
 echo GetFrameGame($webgl);
 
-//echo $OUTPUT->footer();
+echo $OUTPUT->footer();
