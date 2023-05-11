@@ -26,11 +26,7 @@ defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
 
-    $storage_engines = [
-        1 => get_string('local_file_system','mod_webgl'),
-        2 => null,
-        3 => null
-    ];
+    $storage_engines = [1 => get_string('local_file_system','mod_webgl')];
 
     $settings->add(new admin_setting_configselect('webgl/storage_engine',
         get_string('storage_engine', 'mod_webgl'),

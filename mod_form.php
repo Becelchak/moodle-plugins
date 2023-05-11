@@ -136,9 +136,7 @@ class mod_webgl_mod_form extends moodleform_mod {
 
         $mform->addElement('select', 'storage_engine', get_string('storage_engine', 'webgl'),
             [
-                1 => get_string('local_file_system','mod_webgl'),
-                2 => null,
-                3 => null
+                1 => get_string('local_file_system','mod_webgl')
             ]);
         $mform->addHelpButton('storage_engine', 'storage_engine', 'webgl');
         $mform->addRule('storage_engine', null, 'required', null, 'client');
