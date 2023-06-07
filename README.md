@@ -1,13 +1,13 @@
 # moodle-plugins
 
-Сборник плагинов
+Part of the plugin collection
 
  
 
 ## WEBGL
-***Описание:***
+***Description:***
 
- - Плагин, добавляющий активность в лице Unity проектов, собранных под
+ - A plugin that adds activity in the face of Unity projects built under
    **WEBGL**.  
- - Требует: **zip**. архив проекта 
- - Директория по которой должен находиться в Moodle: **/mod**
+ - Requires: **zip**. project archive. 
+ - The directory where it should be located in Moodle: **/mod**
