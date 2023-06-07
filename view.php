@@ -5,15 +5,12 @@
  * AWS webgl module version info
  *
  * @package mod_webgl
- * @copyright  2020 Brain station 23 ltd <>  {@link https://brainstation-23.com/}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 global $OUTPUT;
 
 require_once(dirname(dirname(dirname(__FILE__))) . '/config.php');
 require_once(dirname(__FILE__) . '/lib.php');
-//require_once($CFG->dirroot.'/mod/lesson/locallib.php');
 
 
 $id = optional_param('id', 0, PARAM_INT); // Course_module ID, or.
@@ -41,7 +38,7 @@ $event->add_record_snapshot('course', $PAGE->course);
 $event->add_record_snapshot($PAGE->cm->modname, $webgl);
 $event->trigger();
 
-// Печать заголовка страницы
+// Print title page
 
 $PAGE->set_url('/mod/webgl/view.php', array('id' => $cm->id));
 $PAGE->set_title(format_string($webgl->name));

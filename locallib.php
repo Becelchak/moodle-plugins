@@ -4,15 +4,13 @@
  * Locallib.
  *
  * @package mod_webgl
- * @copyright  2020 Brain station 23 ltd <>  {@link https://brainstation-23.com/}
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
 
 require_once('mod_form.php');
 
-/** Возвращает строку html кода, позволяя отрисовать плеер с юнити игрой
+/** Returns a line of html code for render the game player
  * @param $webgl
  * @return string
  */
@@ -60,14 +58,14 @@ function webgl_import_extract_upload_contents(stdClass $webgl, string $zipfilepa
     }
 
     if (!is_dir($importtempdir . DIRECTORY_SEPARATOR . $dirname)) {
-        // Файл не найден из-за некорректной директории
+        // File not found due to incorrect directory
         throw new moodle_exception('invalidcontent', 'mod_webgl');
     }
 
     $indexfile = $dirname . 'index.html';
 
     if (!in_array($indexfile, $filelist)) {
-        // Файл не найден из-за некорректного index.html
+        // File not found due to incorrect index.html
         throw new moodle_exception('errorimport', 'mod_webgl');
     }
 
@@ -87,7 +85,7 @@ function webgl_import_extract_upload_contents(stdClass $webgl, string $zipfilepa
 
 
 /**
- * Загрузка zip файла.
+ * Upload zip file.
  *
  * @param stdClass $webgl
  * @param moodleform_mod $mform
@@ -114,8 +112,6 @@ function webgl_upload_zip_file($webgl, $mform, $elname, $res) {
                 'Content-Type' => "application/octet-stream",
             ]);
 
-        }else{
-            //TODO: Implement Moodle file system zip file import
         }
     }
 }
@@ -157,125 +153,3 @@ function webgl_index_file_url($webgl, $blobdatadetails)
     }
     return $webgl;
 }
-
-//class webgl extends webgl_base {
-//    public function __construct($properties, $cm = null, $course = null) {
-//        parent::__construct($properties);
-//        $this->cm = $cm;
-//        $this->courserecord = $course;
-//    }
-//}
-
-/**
- * Activity navigation (нижняя). Неактуально.
- *
- * @param moodle_page $PAGE
- * @return string
- * @throws coding_exception
- * @throws moodle_exception
- */
-//function activity_navigation($PAGE) {
-//    global $CFG;
-//    // First we should check if we want to add navigation.
-//    $context = $PAGE->context;
-//
-//    // Get a list of all the activities in the course.
-//    $course = $PAGE->cm->get_course();
-//    $modules = get_fast_modinfo($course->id)->get_cms();
-//
-//    $section = 1;
-//
-//    // Put the modules into an array in order by the position they are shown in the course.
-//    $mods = [];
-//    $activitylist = [];
-//    foreach ($modules as $module) {
-//        // Only add activities the user can access, aren't in stealth mode and have a url (eg. mod_label does not).
-//        if (!$module->uservisible || $module->is_stealth() || empty($module->url)) {
-//            continue;
-//        }
-//        $mods[$module->id] = $module;
-//
-//        // No need to add the current module to the list for the activity dropdown menu.
-//        if ($module->id == $PAGE->cm->id) {
-//
-//            $curentmodsection = $module->get_section_info();
-//            $section = $curentmodsection;
-//            continue;
-//        }
-//        // Module name.
-//        $modname = $module->get_formatted_name();
-//        // Display the hidden text if necessary.
-//        if (!$module->visible) {
-//            $modname .= ' ' . get_string('hiddenwithbrackets');
-//        }
-//        // Module URL.
-//        $linkurlnext = new moodle_url($module->url, array('forceview' => 1));
-//        // Add module URL (as key) and name (as value) to the activity list array.
-//        $activitylist[$linkurlnext->out(false)] = $modname;
-//    }
-//
-//    $nummods = count($mods);
-//
-//    // If there is only one mod then do nothing.
-//    if ($nummods == 1) {
-//        return '';
-//    }
-//
-//    // Get an array of just the course module ids used to get the cmid value based on their position in the course.
-//    $modids = array_keys($mods);
-//
-//    // Get the position in the array of the course module we are viewing.
-//    $position = array_search($PAGE->cm->id, $modids);
-//    $sectionurl = new moodle_url('/course/view.php', ['id' => $course->id, 'section' => $section->section]);
-//
-//    $prevmod = null;
-//    $nextmod = null;
-//    $prevtotalurl = null;
-//    $nexttotalurl = null;
-//
-//    // Check if we have a previous mod to show.
-//    if ($position > 0) {
-//        $prevmod = $mods[$modids[$position - 1]];
-//        $linkurlprev = new \moodle_url($prevmod->url, array('forceview' => 1));
-//        $linknameprev = $prevmod->get_formatted_name();
-//        if (!$prevmod->visible) {
-//            $linknameprev .= ' ' . get_string('hiddenwithbrackets');
-//        }
-//        $prevtotalurl = '<a href="' . $linkurlprev
-//            . '" id="prev-activity-link" class="btn btn-link btn-action text-truncate" title="'
-//            . $linknameprev . '">' . $linknameprev . '</a>';
-//    }
-//
-//    // Check if we have a next mod to show.
-//    if ($position < ($nummods - 1)) {
-//        $nextmod = $mods[$modids[$position + 1]];
-//        $linkurlnext = new \moodle_url($nextmod->url, array('forceview' => 1));
-//        $linknamenext = $nextmod->get_formatted_name();
-//        if (!$nextmod->visible) {
-//            $linknamenext .= ' ' . get_string('hiddenwithbrackets');
-//        }
-//        $nexttotalurl = '<a href="' . $linkurlnext
-//            . '" id="next-activity-link" class="btn btn-link btn-action text-truncate" title="'
-//            . $linknamenext . '"> ' . $linknamenext . '</a>';
-//    }
-//    $sectioname = $section->name ?? get_string('sectionname', 'format_' . $course->format) . ' ' . $section->section;
-//    $sectioninfourl = $section->section > 0 ? '<a href="' . $sectionurl
-//        . '"   id="activity-link" class="btn btn-link btn-action text-truncate" title="'
-//        . $sectioname . '">' . $sectioname . '</a>' : '';
-//
-//    return '<div class="course-footer-nav">
-//            <hr class="hr">
-//            <div class="row">
-//                <div class="col-sm-12 col-md">
-//                    <div class="pull-left">' . $prevtotalurl . '</div>
-//                </div>
-//                <div class="col-sm-12 col-md-2">
-//                    <div class="mdl-align" >' . $sectioninfourl . '</div>
-//                </div>
-//                <div class="col-sm-12 col-md">
-//                    <div class="pull-right">' . $nexttotalurl . '</div>
-//                </div>
-//            </div>
-//        </div>';
-//}
-// }

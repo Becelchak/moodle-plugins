@@ -5,8 +5,6 @@
  *
  * @package     mod_lesson
  * @category    backup
- * @copyright   2010 Sam Hemelryk
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -16,8 +14,6 @@ require_once($CFG->dirroot . '/mod/webgl/backup/moodle2/backup_webgl_stepslib.ph
 /**
  * Provides the steps to perform one complete backup of the Lesson instance
  *
- * @copyright  2010 Sam Hemelryk
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class backup_webgl_activity_task extends backup_activity_task {
 
